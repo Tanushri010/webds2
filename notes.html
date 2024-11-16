@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB DS</title>
+    <style>
+        body {
+            min-height: 100vh;
+      background-image: url('bgimg.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+        }
+
+        .navbar {
+            background-color: black;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            padding: 5px;
+        }
+
+        .logo-text {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+            color: black;
+        }
+
+        .brand-name {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .notes-button {
+            background-color: #4477cc;
+            color: white;
+            border: none;
+            padding: 8px 40px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .tabs-container {display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 2rem;
+            margin-top: 21rem;
+        }
+
+        .tab {
+            background-color: black;
+            color: white;
+            padding: 25px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .arrow {
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .tab.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .tab-content {
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .tab.active + .tab-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB8QiOHI7b7rHYPy3mTIYPgVOy0xHSjWtS6g&s" alt="WEB DS Logo" class="logo">
+            <span class="logo-text">WEB DS</span>
+        </div>
+        <button class="notes-button">Notes</button>
+    </nav>
+
+    <div class="tabs-container">
+        <button class="tab">
+            <span>DCCA</span>
+            <span class="arrow">▼</span>
+        </button>
+        <div class="tab-content">
+            DCCA content goes here
+        </div>
+
+        <button class="tab">
+            <span>OOP</span>
+            <span class="arrow">▼</span>
+        </button>
+        <div class="tab-content">
+            OOP content goes here
+        </div>
+
+        <button class="tab">
+            <span>MDS</span>
+            <span class="arrow">▼</span>
+        </button>
+        <div class="tab-content">
+            MDS content goes here
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const wasActive = this.classList.contains('active');
+                
+                // Close all tabs
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+
+                // Open clicked tab if it wasn't already open
+                if (!wasActive) {
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
